@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@Model.counter.Value</h1>
+    <a class="btn btn-outline-success" asp-route-handler="Change" asp-route-current="@Model.counter.Value" asp-route-amount="1">+</a>
+    <a class="btn btn-outline-danger" asp-route-handler="Change" asp-route-current="@Model.counter.Value" asp-route-amount="-1">-</a>
+    <a class="btn btn-outline-warning" asp-route-value="0" >Reset</a>
+
+
+    <form method="post">
+        <input type="number" asp-for="@Model.counter.Value" value="@Model.counter.Value" />
+        <button type="submit" class="btn btn-outline-primary">Změnit na</button>
+    </form>
+
+    <form method="post">
+        <input type="hidden" asp-for="@Model.counter.Amount" value="@Model.counter.Value" />
+        <input type="number" asp-for="@Model.counter.Value" value="@Model.counter.Value" />
+        <button type="submit" class="btn btn-outline-primary">Změnit na</button>
+    </form>
+
+</div>
